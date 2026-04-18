@@ -612,6 +612,21 @@ with app.app_context():
         except Exception:
             db.session.rollback()
 
+# ============================================================
+# INIT & RUN
+# ============================================================
+
+# 1. This runs EVERY time, whether on your Mac or on Render
+# ============================================================
+# INIT & RUN
+# ============================================================
+
+# 1. This runs EVERY time, whether on your Mac or on Render
+with app.app_context():
+    db.create_all()
+    print("Database checked/created successfully!")
+
+# 2. This ONLY runs on your Mac, Render/Gunicorn ignores it
 if __name__ == '__main__':
     print("=" * 50)
     print("  VayuPath - AQI Smart Route Optimizer")
